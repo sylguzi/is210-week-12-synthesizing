@@ -8,13 +8,15 @@ Synthesizing Tasks
 :College: CUNY School of Professional Studies
 :Course-Name: Software Application Programming I
 :Course-Code: IS 210
-:Points: ##
+:Points: 12
 :Due-Date: YYYY-MM-DDTHH:mm:ss
 
 Overview
 ========
 
-[overview]
+In this exercises we'll explore exceptions in the context of custom classes.
+This is an important tool for delivering meaningful error messages when your
+program encounters unexpected output.
 
 Instructions
 ============
@@ -41,24 +43,100 @@ files that you create!
 Synthesizing Tasks
 ==================
 
-Task ##
+Task 01
 -------
 
-[description of task]
+Creating custom exception classes is a major part of any programming project.
 
 Specifications
 ^^^^^^^^^^^^^^
 
-[step-by-step directions of the task]
+#.  Create a file named ``task_04.py``
+
+#.  Create a new exception class named ``BaseException`` which simply extends
+    ``Exception``
+
+#.  Create three additional exception classes with the following hierarchies:
+
+    #.  ``StringError``, subclassed to ``BaseException`` and ``TypeError``
+
+    #.  ``NumberError``, subclassed to ``BaseException` and ``TypeError``
+
+    #.  ``NonZeroError``, subclassed to ``NumberError``
 
 Examples
 ^^^^^^^^
 
-[examples of the work in-progress]
+.. code:: pycon
+
+    >>> issubclass(StringError, TypeError)
+    True
+    >>> issubclass(NumberError, BaseException)
+    True
+
+Task 02
+-------
+
+A custom exception class can sometimes offer important additional functionality
+in debugging errors.
+
+Specifications
+^^^^^^^^^^^^^^
+
+#.  Create a file named ``task_05.py``
+
+#.  Create a custom exception class named ``CustomError`` that is subclassed
+    to ``Exception``
+
+#.  ``CustomError`` has a custom constructor that calls
+    ``Exception.__init__()`` but also takes a third parameter named ``cause``
+    and stores its value as ``self.cause``
+
+Examples
+^^^^^^^^
 
 .. code:: pycon
 
-    >>>
+    >>> myerr = CustomError('Whoah!', cause='Messed up!')
+    >>> print myerr.cause
+    Messed up!
+
+Task 03
+-------
+
+Except clauses may match multiple types of exceptions saving unnecessary
+duplication and effort.
+
+Specifications
+^^^^^^^^^^^^^^
+
+#.  Open ``task_06.py``
+
+#.  Alter the ``except`` clause so that it catches ``TypeError``, ``KeyError``,
+    and ``IndexError``
+
+    #.  Do not add additional except clauses!
+
+#.  Allow any other exceptions to occur naturally (uncaught)
+
+.. tip::
+
+    Check out Python's exceptions documentation for a neat way to capture both
+    ``KeyError`` and ``IndexError`` in the same superclass.
+
+Examples
+^^^^^^^^
+
+.. code:: pycon
+
+    >>> exception_test(['apple'], 0, 'p')
+    False
+    >>> exception_test(43, 1, 1)
+    True
+    >>> exception_test(['apple'], 0, x)
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    NameError: name 'x' is not defined
 
 Executing Tests
 ===============
