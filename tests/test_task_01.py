@@ -16,18 +16,18 @@ class Task01TestCase(unittest.TestCase):
     """Task 01 tests"""
 
     def test_base_exception(self):
-        """Tests that BaseException exists and is subclassed to Exception"""
+        """Tests that BaseError exists and is subclassed to Exception"""
         with self.assertRaises(Exception):
-            raise task_01.BaseException
+            raise task_01.BaseError
 
     def test_string_error_is_base(self):
-        """Tests if StringError is a BaseException"""
-        with self.assertRaises(task_01.BaseException):
+        """Tests if StringError is a BaseError"""
+        with self.assertRaises(task_01.BaseError):
             raise task_01.StringError
 
     def test_number_error_is_base(self):
-        """Tests if NumberError is a BaseException"""
-        with self.assertRaises(task_01.BaseException):
+        """Tests if NumberError is a BaseError"""
+        with self.assertRaises(task_01.BaseError):
             raise task_01.NumberError
 
     def test_string_error_is_type(self):

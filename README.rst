@@ -51,16 +51,16 @@ Creating custom exception classes is a major part of any programming project.
 Specifications
 ^^^^^^^^^^^^^^
 
-#.  Create a file named ``task_04.py``
+#.  Create a file named ``task_01.py``
 
-#.  Create a new exception class named ``BaseException`` which simply extends
+#.  Create a new exception class named ``BaseError`` which simply extends
     ``Exception``
 
 #.  Create three additional exception classes with the following hierarchies:
 
-    #.  ``StringError``, subclassed to ``BaseException`` and ``TypeError``
+    #.  ``StringError``, subclassed to ``BaseError`` and ``TypeError``
 
-    #.  ``NumberError``, subclassed to ``BaseException` and ``TypeError``
+    #.  ``NumberError``, subclassed to ``BaseError` and ``TypeError``
 
     #.  ``NonZeroError``, subclassed to ``NumberError``
 
@@ -71,7 +71,7 @@ Examples
 
     >>> issubclass(StringError, TypeError)
     True
-    >>> issubclass(NumberError, BaseException)
+    >>> issubclass(NumberError, BaseError)
     True
 
 Task 02
@@ -83,7 +83,7 @@ in debugging errors.
 Specifications
 ^^^^^^^^^^^^^^
 
-#.  Create a file named ``task_05.py``
+#.  Create a file named ``task_02.py``
 
 #.  Create a custom exception class named ``CustomError`` that is subclassed
     to ``Exception``
@@ -110,7 +110,7 @@ duplication and effort.
 Specifications
 ^^^^^^^^^^^^^^
 
-#.  Open ``task_06.py``
+#.  Open ``task_03.py``
 
 #.  Alter the ``except`` clause so that it catches ``TypeError``, ``KeyError``,
     and ``IndexError``
